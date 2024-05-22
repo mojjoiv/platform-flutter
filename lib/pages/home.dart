@@ -87,7 +87,7 @@ class _HomeState extends State<Home> {
                 Container(
                     margin: EdgeInsets.all(4),
                     child: Material(
-                        elevation: 5.0,
+                        elevation: 3.0,
                         borderRadius: BorderRadius.circular(20),
                         child: Container(
                             padding: EdgeInsets.all(14),
@@ -116,41 +116,47 @@ class _HomeState extends State<Home> {
           ),
           SizedBox(height: 30.0),
           Container(
-              child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.asset(
-                "images/salad2.png",
-                height: 100,
-                width: 100,
-                fit: BoxFit.cover,
-              ),
-              SizedBox(
-                width: 20.0,
-              ),
-              Column(
-                children: [
-                  Container(
-                    width: MediaQuery.of(context).size.width / 2,
-                    child: Text("mediterranean chickpea salad",
-                        style: AppWidget.semiBoldTextStyle()),
-                  ),
-                  SizedBox(height: 5.0),
-                  Container(
-                    width: MediaQuery.of(context).size.width / 2,
-                    child: Text("Honey Goat cheese",
-                        style: AppWidget.LightTextStyle()),
-                  ),
-                  SizedBox(height: 5.0),
-                  Container(
-                    width: MediaQuery.of(context).size.width / 2,
-                    child:
-                        Text("\Kshs100", style: AppWidget.semiBoldTextStyle()),
-                  )
-                ],
-              )
-            ],
-          ))
+              margin: EdgeInsets.only(right: 20.0),
+              child: Material(
+                  elevation: 5.0,
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                      padding: EdgeInsets.all(5),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            "images/salad2.png",
+                            height: 100,
+                            width: 100,
+                            fit: BoxFit.cover,
+                          ),
+                          SizedBox(
+                            width: 20.0,
+                          ),
+                          Column(
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: Text("mediterranean chickpea salad",
+                                    style: AppWidget.semiBoldTextStyle()),
+                              ),
+                              SizedBox(height: 5.0),
+                              Container(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: Text("Honey Goat cheese",
+                                    style: AppWidget.LightTextStyle()),
+                              ),
+                              SizedBox(height: 5.0),
+                              Container(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: Text("\Kshs100",
+                                    style: AppWidget.semiBoldTextStyle()),
+                              )
+                            ],
+                          )
+                        ],
+                      ))))
         ],
       ),
     ));
