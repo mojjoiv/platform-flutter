@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+// import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:ecommerceplatform/pages/home.dart';
 import 'package:ecommerceplatform/pages/bottomnav.dart';
 import 'package:ecommerceplatform/pages/login.dart';
 import 'package:ecommerceplatform/pages/signup.dart';
 import 'package:ecommerceplatform/pages/onboard.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // Stripe.publishableKey = publishableKey;
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
