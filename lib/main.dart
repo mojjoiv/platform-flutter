@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:ecommerceplatform/pages/home.dart';
-// import 'package:ecommerceplatform/pages/bottomnav.dart';
+import 'package:ecommerceplatform/pages/home.dart';
+import 'package:ecommerceplatform/pages/bottomnav.dart';
+import 'package:ecommerceplatform/pages/login.dart';
 import 'package:ecommerceplatform/pages/signup.dart';
+import 'package:ecommerceplatform/pages/onboard.dart';
 
 void main() => runApp(MyApp());
 
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       // A widget which will be started on application startup
-      home: SignUp(),
+      home: Onboard(),
     );
   }
 }

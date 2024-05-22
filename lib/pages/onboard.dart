@@ -17,7 +17,6 @@ class _OnboardState extends State<Onboard> {
   @override
   void initState() {
     _controller = PageController(initialPage: 0);
-
     super.initState();
   }
 
@@ -34,43 +33,42 @@ class _OnboardState extends State<Onboard> {
         children: [
           Expanded(
             child: PageView.builder(
-                controller: _controller,
-                itemCount: contents.length,
-                onPageChanged: (int index) {
-                  setState(() {
-                    currentIndex = index;
-                  });
-                },
-                itemBuilder: (_, i) {
-                  return Padding(
-                    padding:
-                        EdgeInsets.only(top: 40.0, left: 20.0, right: 20.0),
-                    child: Column(
-                      children: [
-                        Image.asset(
+              controller: _controller,
+              itemCount: contents.length,
+              onPageChanged: (int index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
+              itemBuilder: (_, i) {
+                return Padding(
+                  padding: EdgeInsets.only(top: 40.0, left: 20.0, right: 20.0),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Image.asset(
                           contents[i].image,
-                          height: 450,
                           width: MediaQuery.of(context).size.width,
-                          fit: BoxFit.fill,
+                          fit: BoxFit.cover,
                         ),
-                        SizedBox(
-                          height: 40.0,
-                        ),
-                        Text(
-                          contents[i].title,
-                          style: AppWidget.HeadlineTextStyle(),
-                        ),
-                        SizedBox(
-                          height: 20.0,
-                        ),
-                        Text(
-                          contents[i].description,
-                          style: AppWidget.LightTextStyle(),
-                        )
-                      ],
-                    ),
-                  );
-                }),
+                      ),
+                      SizedBox(height: 40.0),
+                      Text(
+                        contents[i].title,
+                        style: AppWidget.HeadlineTextStyle(),
+                        textAlign: TextAlign.center,
+                      ),
+                      SizedBox(height: 20.0),
+                      Text(
+                        contents[i].description,
+                        style: AppWidget.LightTextStyle(),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ),
           Container(
             child: Row(
@@ -85,15 +83,21 @@ class _OnboardState extends State<Onboard> {
             onTap: () {
               if (currentIndex == contents.length - 1) {
                 Navigator.pushReplacement(
-                    context, MaterialPageRoute(builder: (context) => SignUp()));
-              }
-              _controller.nextPage(
+                  context,
+                  MaterialPageRoute(builder: (context) => SignUp()),
+                );
+              } else {
+                _controller.nextPage(
                   duration: Duration(milliseconds: 100),
-                  curve: Curves.bounceIn);
+                  curve: Curves.bounceIn,
+                );
+              }
             },
             child: Container(
               decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(20)),
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(20),
+              ),
               height: 60,
               margin: EdgeInsets.all(40),
               width: double.infinity,
@@ -101,13 +105,14 @@ class _OnboardState extends State<Onboard> {
                 child: Text(
                   currentIndex == contents.length - 1 ? "Start" : "Next",
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold),
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -119,7 +124,9 @@ class _OnboardState extends State<Onboard> {
       width: currentIndex == index ? 18 : 7,
       margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6), color: Colors.black38),
+        borderRadius: BorderRadius.circular(6),
+        color: Colors.black38,
+      ),
     );
   }
 }
