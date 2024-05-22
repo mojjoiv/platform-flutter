@@ -60,7 +60,7 @@ class _HomeState extends State<Home> {
                       child: Container(
                         decoration: BoxDecoration(
                             color: icecream ? Colors.black : Colors.white,
-                            borderRadius: BorderRadius.circular(10)),
+                            borderRadius: BorderRadius.circular(8)),
                         padding: EdgeInsets.all(8),
                         child: Image.asset("images/ice-cream.png",
                             height: 40,
@@ -68,30 +68,72 @@ class _HomeState extends State<Home> {
                             fit: BoxFit.cover,
                             color: icecream ? Colors.white : Colors.black),
                       ))),
-              Material(
-                  elevation: 2.0,
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    child: Image.asset("images/burger.png",
-                        height: 40, width: 40, fit: BoxFit.cover),
-                  )),
-              Material(
-                  elevation: 2.0,
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    child: Image.asset("images/pizza.png",
-                        height: 40, width: 40, fit: BoxFit.cover),
-                  )),
-              Material(
-                  elevation: 2.0,
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    padding: EdgeInsets.all(8),
-                    child: Image.asset("images/salad.png",
-                        height: 40, width: 40, fit: BoxFit.cover),
-                  ))
+              GestureDetector(
+                  onTap: () {
+                    icecream = false;
+                    pizza = true;
+                    salad = false;
+                    burger = false;
+                    setState(() {});
+                  },
+                  child: Material(
+                      elevation: 2.0,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: pizza ? Colors.black : Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        padding: EdgeInsets.all(8),
+                        child: Image.asset("images/pizza.png",
+                            height: 40,
+                            width: 40,
+                            fit: BoxFit.cover,
+                            color: pizza ? Colors.white : Colors.black),
+                      ))),
+              GestureDetector(
+                  onTap: () {
+                    icecream = false;
+                    pizza = false;
+                    salad = true;
+                    burger = false;
+                    setState(() {});
+                  },
+                  child: Material(
+                      elevation: 2.0,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: salad ? Colors.black : Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        padding: EdgeInsets.all(8),
+                        child: Image.asset("images/salad.png",
+                            height: 40,
+                            width: 40,
+                            fit: BoxFit.cover,
+                            color: salad ? Colors.white : Colors.black),
+                      ))),
+              GestureDetector(
+                  onTap: () {
+                    icecream = false;
+                    pizza = false;
+                    salad = false;
+                    burger = true;
+                    setState(() {});
+                  },
+                  child: Material(
+                      elevation: 2.0,
+                      borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: burger ? Colors.black : Colors.white,
+                            borderRadius: BorderRadius.circular(8)),
+                        padding: EdgeInsets.all(8),
+                        child: Image.asset("images/burger.png",
+                            height: 40,
+                            width: 40,
+                            fit: BoxFit.cover,
+                            color: burger ? Colors.white : Colors.black),
+                      )))
             ],
           )
         ],
