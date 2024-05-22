@@ -50,9 +50,9 @@ class _DetailsState extends State<Details> {
                   Icons.arrow_back_ios_new_outlined,
                   color: Colors.black,
                 )),
-            Image.network(
-              widget.image,
-              width: MediaQuery.of(context).size.width,
+            Image.asset(
+              "images/salad2.png",
+              width: MediaQuery.of(context).size.width / 1.5,
               height: MediaQuery.of(context).size.height / 2.5,
               fit: BoxFit.fill,
             ),
